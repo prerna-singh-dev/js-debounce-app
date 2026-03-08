@@ -28,9 +28,12 @@ async function fetchData(value) {
   abortController = new AbortController();
 
   try {
-    const resp = await fetch("https://dummyjson.com/products/search?q=" + value, {
-      signal: abortController.signal,
-    });
+    const resp = await fetch(
+      "https://dummyjson.com/products/search?q=" + value,
+      {
+        signal: abortController.signal,
+      }
+    );
     if (!resp.ok) throw new Error("Netwrok issue");
     const data = await resp.json();
     if (data.products.length > 0) {
@@ -54,7 +57,7 @@ function populateData(searchData) {
     const newtext = `<div>
     <h4>${searchData[i].title}</h4>
     <p>${searchData[i].description}</p>
-    <p>${searchData[i].price}</p>
+    <p>Price : $${searchData[i].price}</p>
     </div>`;
     newLi.innerHTML = newtext;
     showResults.appendChild(newLi);
