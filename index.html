@@ -3,43 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search Products</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Debounce/Throttle</title>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Search Products</h1>
-      <p>Find what you need — results update as you type</p>
-    </header>
     <section>
-      <div class="input-wrap">
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/>
-          <path d="m21 21-4.35-4.35"/>
-        </svg>
-        <input
-        type="search"
-        name="searchText"
-        id="searchText"
-        placeholder="Search posts..."
-      />
+      <!-- Tabs Buttons -->
+      <div class="tabs">
+        <button class="tab-btn" data-tab="debounce">Debounce</button>
+        <button class="tab-btn" data-tab="throttle">Throttle</button>
       </div>
-      <ul class="search-hints">
-        Try : 
-        <li>phone</li>
-        <li>iphone</li>
-        <li>samsung</li>
-        <li>laptop</li>
-        <li>watch</li>
-        <li>perfume</li>
-        <li>shoes</li>
-        <li>bag</li>
-        <li>lipstick</li>
-        <li>dress</li>
-      </ul>
-      <ul id="searchResult"></ul>
+
+      <!-- Tabs Content -->
+      <div class="tab-content" id="tab-content">
+        <div id="debounce" class="tab-panel none" role="tabpanel">
+          <header>
+            <h1>Search Products</h1>
+            <p>Find what you need — results update as you type</p>
+          </header>
+          <div class="input-wrap">
+            <svg
+              class="search-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+            <input
+              type="search"
+              name="searchText"
+              id="searchText"
+              placeholder="Search products..."
+            />
+          </div>
+          <ul class="search-hints">
+            Try :
+            <li>phone</li>
+            <li>iphone</li>
+            <li>samsung</li>
+            <li>laptop</li>
+            <li>watch</li>
+            <li>perfume</li>
+            <li>shoes</li>
+            <li>bag</li>
+            <li>lipstick</li>
+            <li>dress</li>
+          </ul>
+          <ul id="searchResult"></ul>
+        </div>
+
+        <div id="throttle" class="tab-panel none" role="tabpanel">
+          <header>
+            <h1>Infinite Scroll (Throttled)</h1>
+            <p>Scroll down — new posts load every 1.5s while scrolling</p>
+          </header>
+          <ul id="postData"></ul>
+        </div>
+      </div>
     </section>
 
-    <script src="index.js"></script>
+    <script type="module" src="js/tab.js"></script>
   </body>
 </html>
