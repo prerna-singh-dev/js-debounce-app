@@ -3,7 +3,7 @@ const tabPanel = document.querySelectorAll(".tab-panel");
 
 
 const loadedModules = {};
-if(!tab) return;
+
 tab.addEventListener("click", async function (e) {
   const clickedId = e.target.closest("[data-tab]")?.dataset.tab;
   if (!clickedId) return;
